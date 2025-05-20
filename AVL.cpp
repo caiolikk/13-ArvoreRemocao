@@ -277,13 +277,13 @@ NO* removerArvore(NO* no, int valor) {
         else if (no->esq == NULL) {
             NO* temp = no->dir;
             delete no;
-            return NULL;
+            return temp;
         }
 
         else if (no->dir == NULL) {
             NO* temp = no->esq;
             delete no;
-            return NULL;
+            return temp;
         }
 
         else {
@@ -292,7 +292,7 @@ NO* removerArvore(NO* no, int valor) {
                 temp = temp->esq;
             }
             no->valor = temp->valor;
-            no->dir = removerArvore(no->dir = temp->valor);
+            no->dir = removerArvore(no->dir, temp->valor);
         }
                 
         // Caso 1: Nó sem filhos
