@@ -54,7 +54,7 @@ void menu() {
         cout << "1 - Inicializar Arvore\n";
         cout << "2 - Exibir quantidade de elementos\n";
         cout << "3 - Inserir elemento\n";
-		cout << "4 - Remover elemento\n";
+        cout << "4 - Remover elemento\n";
         cout << "5 - Exibir arvore\n";
         cout << "6 - Buscar elemento\n";
         cout << "7 - Sair\n\n";
@@ -62,27 +62,27 @@ void menu() {
         cin >> op;
 
         switch (op) {
-                   case 1:
-                       inicializar();
-                       break;
-                   case 2:
-                       exibirQuantidade();
-                       break;
-                   case 3:
-                       inserir();
-                       break;
-				   case 4:
-                       remover();
-					   break;
-                   case 5:
-                       exibir();
-                       break;
-                   case 6:
-                       buscar();
-                       break;
-               }
+        case 1:
+            inicializar();
+            break;
+        case 2:
+            exibirQuantidade();
+            break;
+        case 3:
+            inserir();
+            break;
+        case 4:
+            remover();
+            break;
+        case 5:
+            exibir();
+            break;
+        case 6:
+            buscar();
+            break;
+        }
 
-		cout << endl; 
+        cout << endl;
         if (op != 7) system("pause"); // Aguarda tecla (Windows)
     }
 }
@@ -154,47 +154,47 @@ int fatorBalanceamento(NO* no) {
     return alturaNo(no->esq) - alturaNo(no->dir);
 }
 
-NO* girarDireita(NO* y) {  
-   /* Rotação simples à direita  
-             y                x  
-            / \              / \  
-           x   T3   =>      T1  y  
-          / \                  / \  
-        T1  T2               T2  T3  
-   */  
+NO* girarDireita(NO* y) {
+    /* Rotação simples à direita
+              y                x
+             / \              / \
+            x   T3   =>      T1  y
+           / \                  / \
+         T1  T2               T2  T3
+    */
 
-   // Passo 1: Armazene o filho esquerdo de 'y' em uma variável temporária 'x'.  
-   // Passo 2: Transfira a subárvore direita de 'x' para a subárvore esquerda de 'y'.  
-   // Passo 3: Atualize 'x' para ser o novo nó raiz da subárvore.  
-   // Passo 4: Recalcule as alturas dos nós afetados.  
-   // Passo 5: Retorne o novo nó raiz ('x').  
+    // Passo 1: Armazene o filho esquerdo de 'y' em uma variável temporária 'x'.  
+    // Passo 2: Transfira a subárvore direita de 'x' para a subárvore esquerda de 'y'.  
+    // Passo 3: Atualize 'x' para ser o novo nó raiz da subárvore.  
+    // Passo 4: Recalcule as alturas dos nós afetados.  
+    // Passo 5: Retorne o novo nó raiz ('x').  
 
-    NO* x = y->esq;  
-    NO* T2 = x->dir; 
+    NO* x = y->esq;
+    NO* T2 = x->dir;
 
     // Realiza a rotação  
-    x->dir = y;  
-    y->esq = T2;  
+    x->dir = y;
+    y->esq = T2;
 
     // Atualiza as alturas  
-    y->altura = maior(alturaNo(y->esq), alturaNo(y->dir)) + 1;  
-    x->altura = maior(alturaNo(x->esq), alturaNo(x->dir)) + 1;  
+    y->altura = maior(alturaNo(y->esq), alturaNo(y->dir)) + 1;
+    x->altura = maior(alturaNo(x->esq), alturaNo(x->dir)) + 1;
 
-	// Retorna o novo nó raiz
-	return x;
+    // Retorna o novo nó raiz
+    return x;
 
 
-}  
+}
 
-NO* girarEsquerda(NO* x) 
-{  
-   /* Rotação simples à esquerda  
-           x                    y  
-          / \                  / \  
-         T1  y      =>        x  T3  
-            / \              / \  
-           T2 T3            T1 T2  
-   */  
+NO* girarEsquerda(NO* x)
+{
+    /* Rotação simples à esquerda
+            x                    y
+           / \                  / \
+          T1  y      =>        x  T3
+             / \              / \
+            T2 T3            T1 T2
+    */
 
     NO* y = x->dir;      // Passo 1: filho direito de x
     NO* T2 = y->esq;     // Subárvore esquerda de y
@@ -294,7 +294,7 @@ NO* removerArvore(NO* no, int valor) {
             no->valor = temp->valor;
             no->dir = removerArvore(no->dir, temp->valor);
         }
-                
+
         // Caso 1: Nó sem filhos
         // Se o nó não possui filhos (esquerda e direita são NULL), basta removê-lo e retornar NULL para o pai.
 
